@@ -6,7 +6,8 @@ Algoritmo "semnome"
 // Data atual  : 18/09/2025
 Var
 // Seção de Declarações das variáveis
-opcao, pause, quantDesejada, nAtual, contador,ehPrimo, i:inteiro
+opcao, pause, quantDesejada, nAtual, contador,ehPrimo, numero,i:inteiro
+fatorial: real
 Inicio
 // Seção de Comandos, procedimento, funções, operadores, etc...
    enquanto opcao <>4 faca
@@ -59,6 +60,42 @@ Inicio
       se opcao =2 entao
          escreval ("Você escolheu a opção 02 - Fatorial")
          //coloque seu codigo aqui
+         repita
+      escreval("MENU DE OPÇÕES")
+      escreval("1 - Ver apenas o fatorial de um número")
+      escreval("2 - Ver a lista dos fatoriais até o número escolhido")
+      escreval("Escolha uma opção: ")
+      leia(opcao)
+
+      se (opcao < 1) ou (opcao > 2) entao
+         escreval("OPÇÃO INVÁLIDA. Tente novamente.")
+      fimse
+   ate (opcao = 1) ou (opcao = 2)
+
+
+   repita
+      escreval ("Digite um número entre 1 e 17:")
+      leia(numero)
+
+      se (numero < 1) ou (numero > 17) entao
+         escreval ("ENTRADA INVÁLIDA, ESCOLHA UM NÚMERO DE 1 ATÉ 17")
+      fimse
+   ate (numero >= 1) e (numero <= 17)
+
+   fatorial <- 1
+
+   se (opcao = 1) entao
+      para i de 1 ate numero faca
+         fatorial <- fatorial * i
+      fimpara
+      escreval("Fatorial de ", numero, " é: ", fatorial)
+
+   senao
+      para i de 1 ate numero faca
+         fatorial <- fatorial * i
+         escreval("Fatorial de ", i, " é: ", fatorial)
+      fimpara
+   fimse
          escreval("Aperte enter para voltar ao menu")
          leia(pause)
          limpatela
